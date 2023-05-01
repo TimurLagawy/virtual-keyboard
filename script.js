@@ -149,12 +149,12 @@ let Keyboard = {
           break;
 
         //capslock
-        case "caps":
+        case "capslock":
           keyElement.classList.add(
             "keyboard__key--wide",
             "keyboard__key-activatable"
           );
-          keyElement.innerHTML = createIconHTML("keyboard_capslock");
+          keyElement.innerHTML = createIconHTML("capslock");
 
           keyElement.addEventListener("click", () => {
             this._toogleCapsLock();
