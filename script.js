@@ -137,6 +137,17 @@ let Keyboard = {
 
           break;
 
+        case "tab":
+          keyElement.classList.add("keyboard__key--wide");
+          keyElement.innerHTML = createIconHTML("tab");
+
+          keyElement.addEventListener("click", () => {
+            this.properties.value += "  ";
+            this._triggerEvent("oninput");
+          });
+
+          break;
+
         //capslock
         case "caps":
           keyElement.classList.add(
