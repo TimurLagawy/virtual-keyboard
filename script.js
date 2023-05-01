@@ -1,4 +1,4 @@
-const Keyboard = {
+let Keyboard = {
   elements: {
     main: null,
     keysContainer: null,
@@ -43,8 +43,8 @@ const Keyboard = {
   },
 
   _createKeys() {
-    const fragment = document.createDocumentFragment();
-    const keyLayot = [
+    let fragment = document.createDocumentFragment();
+    let keyLayot = [
       "`",
       "1",
       "2",
@@ -57,7 +57,8 @@ const Keyboard = {
       "9",
       "0",
       "-",
-      "backspase",
+      "backspace",
+      "del",
       "tab",
       "q",
       "w",
@@ -72,7 +73,6 @@ const Keyboard = {
       "[",
       "]",
       "#",
-      "del",
       "capslock",
       "a",
       "s",
@@ -97,7 +97,6 @@ const Keyboard = {
       ".",
       "/",
       "↑",
-      "shift",
       "ctrl",
       "win",
       "alt",
@@ -116,8 +115,7 @@ const Keyboard = {
 
     keyLayot.forEach((key) => {
       const keyElement = document.createElement("button");
-      const insertLineBreak =
-        ["backspace", "del", "enter", "r_shift"].indexOf(key) !== -1;
+      const insertLineBreak = ["del", "#", "enter", "↑"].indexOf(key) !== -1;
 
       // Attribute / classes
       keyElement.setAttribute("type", "button");
@@ -159,7 +157,7 @@ const Keyboard = {
 
         case "enter":
           keyElement.classList.add("keyboard__key--wide");
-          keyElement.innerHTML = createIconHTML("keyboard_return");
+          keyElement.innerHTML = createIconHTML("enter");
 
           keyElement.addEventListener("click", () => {
             this.properties.value += "\n";
@@ -170,7 +168,7 @@ const Keyboard = {
 
         case "space":
           keyElement.classList.add("keyboard__key--extra-wide");
-          keyElement.innerHTML = createIconHTML("spase_bar");
+          keyElement.innerHTML = createIconHTML("space");
 
           keyElement.addEventListener("click", () => {
             this.properties.value += " ";
