@@ -123,9 +123,23 @@ let Keyboard = {
 
       //backspase
       switch (key) {
-        case "backspase":
+        case "backspace":
           keyElement.classList.add("keyboard__key--wide");
-          keyElement.innerHTML = createIconHTML("backspase");
+          keyElement.innerHTML = createIconHTML("backspace");
+
+          keyElement.addEventListener("click", () => {
+            this.properties.value = this.properties.value.substring(
+              0,
+              this.properties.value.length - 1
+            );
+            this._triggerEvent("oninput");
+          });
+
+          break;
+
+        case "del":
+          keyElement.classList.add("keyboard__key--wide");
+          keyElement.innerHTML = createIconHTML("del");
 
           keyElement.addEventListener("click", () => {
             this.properties.value = this.properties.value.substring(
