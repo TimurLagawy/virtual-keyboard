@@ -180,6 +180,23 @@ let Keyboard = {
 
           break;
 
+        case "shift":
+          keyElement.classList.add(
+            "keyboard__key--wide",
+            "keyboard__key-activatable"
+          );
+          keyElement.innerHTML = createIconHTML("shift");
+
+          keyElement.addEventListener("click", () => {
+            this._toogleCapsLock();
+            keyElement.classList.toggle(
+              "keyboard__key--active",
+              this.properties.capsLock
+            );
+          });
+
+          break;
+
         case "enter":
           keyElement.classList.add("keyboard__key--wide");
           keyElement.innerHTML = createIconHTML("enter");
